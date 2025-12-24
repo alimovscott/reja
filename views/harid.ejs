@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+    <title>REJA</title>
+    <link rel="stylesheet"
+href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" 
+integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+crossorigin="anonymous" />
+</head>
+<body style="background: linear-gradient(120deg, #b8bbd1, #eaeaf5);">
+    <div class="container mt-5">
+  <h1 class="display-4 text-center mb-4 text-dark">
+     REJA VA MAQSADLAR
+  </h1>
+
+  <div class="card shadow-lg border-0">
+    <div class="card-body p-4">
+      <form id="create-form" action="/create-item" method="POST">
+        <div class="form-group d-flex align-items-center">
+          
+          <input
+            id="create-field"
+            name="item"
+            type="text"
+            class="form-control form-control-lg mr-3"
+            placeholder="Ynagi harid qo'shish..."
+            autofocus
+            autocomplete="off"
+          />
+
+          <button
+            class="btn btn-primary btn-lg px-4"
+            style="border-radius: 20px;"
+          >
+              Qoshish
+          </button>
+
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

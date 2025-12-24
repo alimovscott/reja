@@ -14,6 +14,7 @@ app.use(express.urlencoded({extended: true}));
 app.set('views', 'views');
 app.set("view engine", "ejs");
 // 4
+<<<<<<< HEAD
 
 app.get("/hello", function (req, res) {
     res.end("<h1>hello world</h1>");
@@ -22,6 +23,19 @@ app.get("/hello", function (req, res) {
 app.get("/gift", (req, res) => {
     res.end("siz sovgalar pechidasiz");
 })
+=======
+app.post("/create-item", function(req, res) {
+    console.log(req.body);
+    res.json({test:"success"});
+})
+
+
+app.get("/", function (req, res) {
+    res.render("harid");
+
+});
+
+>>>>>>> 4e2799e (BRR: build express web server)
 
 const server = http.createServer(app);
 let PORT = 3000;
