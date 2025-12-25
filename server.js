@@ -1,28 +1,33 @@
 console.log("Web Serverni boshlash");
 const express = require("express");
 const app = express();
-const http = require("http")
+const http = require("http");
+const fs = require("fs");
 
-// 1
+let user;
+
+fs.readFile("database/user.json", "utf8", (err, data) => {
+    if(err) {
+        console.log("ERROR:",err);
+    } else {
+        user = JSON.parse(data)
+    }
+});
+// 1. Kritish code
 app.use(express.static("public"));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// 2
-// 3
+// 2 Session code
+// 3 Views code
 
 app.set('views', 'views');
 app.set("view engine", "ejs");
-// 4
+// 4 Routing code
 
 
-app.get("/hello", function (req, res) {
-    res.end("<h1>hello world</h1>");
 
-});
-app.get("/gift", (req, res) => {
-    res.end("siz sovgalar pechidasiz");
-})
+
 
 app.post("/create-item", function(req, res) {
     console.log(req.body);
@@ -34,6 +39,10 @@ app.get("/", function (req, res) {
     res.render("harid");
 
 });
+app.get("/publishing", function(req, res) {
+    res.render("publishing", {user: user});
+})
+
 
 
 
