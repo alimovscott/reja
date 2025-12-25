@@ -4,7 +4,7 @@
   "age": 20,
   "residence": "S.Korea",
   "address": "S.Korea, Busan",
-  "languages": ["Uzbek", "Korean, English"],
+  "languages": ["Uzbek", "Korean", "English"],
   "skills": ["HTML", "CSS", "JavaScript", "NodeJS", "Python"],
   "extra_skills": ["Bootstrap", "Materialize", "Styling", "Sass", "Django", "Flask", "Git Knowledge"],
   "work_place": "IT Company",
