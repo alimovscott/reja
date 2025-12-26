@@ -1,7 +1,18 @@
 console.log("Web Serverni boshlash");
 const express = require("express");
 const app = express();
-const http = require("http")
+const http = require("http");
+const fs = require("fs");
+const { json } = require("stream/consumers");
+
+let user;
+fs.readFile("database/users.json", "utf8", (err,data) => {
+    if(err) {
+        console.log("ERROR:", err);
+    } else {
+        user = JSON.parse(data);
+    }
+})
 
 // 1
 app.use(express.static("public"));
@@ -34,6 +45,10 @@ app.get("/", function (req, res) {
     res.render("harid");
 
 });
+
+app.get("/author", function(req, res) {
+    res.render("author", {user: user} );
+})
 
 
 
