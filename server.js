@@ -1,59 +1,35 @@
-console.log("Web Serverni boshlash");
-const express = require("express");
-const app = express();
+ 
 const http = require("http");
-const fs = require("fs");
-const { json } = require("stream/consumers");
+const mongodb = require("mongodb");
 
-let user;
-fs.readFile("database/users.json", "utf8", (err,data) => {
-    if(err) {
-        console.log("ERROR:", err);
-    } else {
-        user = JSON.parse(data);
-    }
-})
+let db;
+const connectionString = "mongodb+srv://Alimovabduqodir:CIy4FmSnIsvARjUI@mern-dev.biwrj7v.mongodb.net/Reja?retryWrites=true&w=majority";
 
-// 1
-app.use(express.static("public"));
-app.use(express.json());
-app.use(express.urlencoded({extended: true}));
-
-// 2
-// 3
-
-app.set('views', 'views');
-app.set("view engine", "ejs");
-// 4
-
-
-app.get("/hello", function (req, res) {
-    res.end("<h1>hello world</h1>");
-
-});
-app.get("/gift", (req, res) => {
-    res.end("siz sovgalar pechidasiz");
-})
-
-app.post("/create-item", function(req, res) {
-    console.log(req.body);
-    res.json({test:"success"});
-})
+mongodb.connect(
+    connectionString,
+    {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    },
+     (err, client) => {
+        if(err) console.log("ERROR on connection MongoDB");
+        else {
+            console.log("MongoDB connection Succeed")
+            module.exports = client;
+            const app = require("./app");
+            const server = http.createServer(app);
+            let PORT = 3000;
+            server.listen(PORT, function() {
+            console.log(`The server is running successfully on port:${PORT}, http://localhost:${PORT}`)
+              });
 
 
-app.get("/", function (req, res) {
-    res.render("reja");
+
+        }
 
 });
 
-app.get("/author", function(req, res) {
-    res.render("author", {user: user} );
-})
 
 
 
-const server = http.createServer(app);
-let PORT = 3000;
-server.listen(PORT, function() {
-    console.log(`The server is running successfully on port:${PORT}, http://localhost:${PORT}`)
-});
+
