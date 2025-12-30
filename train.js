@@ -1,13 +1,65 @@
+
+
+
+
+
+
+
+
+// // TASK B 
+function string(value) {
+    let count = 0;
+    for(let i = 0; i < value.length; i++) {
+        if(!isNaN(value[i])) {
+            console.log(value)
+            count++;   
+        }
+        
+    }
+    return count;
+}
+
+console.log(string("aa22"));
+
+
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+/////////////////////////////////////////
+
+
+
+
+
+
+
+
+
+
+
+
+
 // 21 dars Callback haqida tushuncha!!!
-console.log("Jeck Ma maslahatlari")
-const list = [
-    "Yaxshi talaba boling", // 0-20
-    "Togri boshliq tanlang va koproq xato qiling", // 20-30
-    "Uzingizga ishlashni boshlang", // 30-40
-    "Siz kuchli bolgan narsalarni qiling", // 40-50
-    "Yoshlarga investitsiya qiling", // 50-60
-    "Endi dam oling, foydasi yoq endi", // 60
-]
+// console.log("Jeck Ma maslahatlari")
+// const list = [
+//     "Yaxshi talaba boling", // 0-20
+//     "Togri boshliq tanlang va koproq xato qiling", // 20-30
+//     "Uzingizga ishlashni boshlang", // 30-40
+//     "Siz kuchli bolgan narsalarni qiling", // 40-50
+//     "Yoshlarga investitsiya qiling", // 50-60
+//     "Endi dam oling, foydasi yoq endi", // 60
+// ]
 
 
 
@@ -36,31 +88,31 @@ const list = [
 // console.log("B");
 
 
-async function malahatBering(son){
-    if(typeof son !== 'number') throw  new Error("insert number please");
-    else if(son <= 20) return list[0];
-    else if(son > 20 && son <= 30) return list[1];
-    else if(son > 30 && son <= 40) return list[2];
-    else if(son > 40 && son <= 50) return list[3];
-    else if(son > 50 && son <= 60) return list[4];
-    else {
-        return new Promise((resolve, reject)=> {
-            setTimeout(() => {
-                resolve(list[5]);
-            }, 5000)
-        })
+// async function malahatBering(son){
+//     if(typeof son !== 'number') throw  new Error("insert number please");
+//     else if(son <= 20) return list[0];
+//     else if(son > 20 && son <= 30) return list[1];
+//     else if(son > 30 && son <= 40) return list[2];
+//     else if(son > 40 && son <= 50) return list[3];
+//     else if(son > 50 && son <= 60) return list[4];
+//     else {
+//         return new Promise((resolve, reject)=> {
+//             setTimeout(() => {
+//                 resolve(list[5]);
+//             }, 5000)
+//         })
         
-        // return list[5];
-        // setTimeout(() => {
-        //     return list[5];
-        // },5000);
+//         // return list[5];
+//         // setTimeout(() => {
+//         //     return list[5];
+//         // },5000);
 
-        // asyn hiron funtion ichida setinterval va settimeout ishlamaydi uni promises orqali qilish kerak
+//         // asyn hiron funtion ichida setinterval va settimeout ishlamaydi uni promises orqali qilish kerak
         
-    }
+//     }
 
-};
-console.log("A");
+// };
+// console.log("A");
 
 // bu then vs Catch yordamida 
 // malahatBering(24)
@@ -75,31 +127,32 @@ console.log("A");
 
 // asyn/ await
 
-async function run() {
-    let javob = await malahatBering(65);
-    console.log(javob);
-    javob = await malahatBering(31);
-    console.log(javob);
-    javob = await malahatBering(41);
-    console.log(javob)
+// async function run() {
+//     let javob = await malahatBering(65);
+//     console.log(javob);
+//     javob = await malahatBering(31);
+//     console.log(javob);
+//     javob = await malahatBering(41);
+//     console.log(javob)
 
-}
+// }
 
-run()
+// run()
+
 
 
 
 // TASK A
 
 
-function son(letter,word) {
-let count = 0;  
-    for(let i = 0; i <= word.length; i++){
-        if(word[i] === letter) {
-            count++;
-        }
-    }
+// function son(letter,word) {
+// let count = 0;  
+//     for(let i = 0; i <= word.length; i++){
+//         if(word[i] === letter) {
+//             count++;
+//         }
+//     }
 
-    return count;
-}
-console.log(son("a", "alimovabduqodir"));
+//     return count;
+// }
+// console.log(son("a", "alimovabduqodir"));
