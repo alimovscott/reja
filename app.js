@@ -16,6 +16,7 @@ fs.readFile("database/users.json", "utf8", (err,data) => {
 
 // MongoDB chaqirish
 const db = require("./server").db();
+const mongodb = require("mongodb");
 
 // 1
 app.use(express.static("public"));
@@ -30,16 +31,19 @@ app.set("view engine", "ejs");
 // 4
 
 
-app.get("/hello", function (req, res) {
-    res.end("<h1>hello world</h1>");
+app.post("/delete-item", function(req, res) {
+    const id = req.body.id;
+    db.collection("plans").deleteOne({_id: new mongodb.ObjectId(id)}, function(err, data) {
+        res.json({state:"success"})
+    })
+    // console.log(id);
+    
 
-});
-app.get("/gift", (req, res) => {
-    res.end("siz sovgalar pechidasiz");
 })
 
+
 app.post("/create-item", function(req, res) {
-    console.log("user entered /create-item");
+    console.log("user entered b /create-item");
     const new_reja = req.body.reja;
     db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
         res.json(data.ops[0]);
@@ -50,7 +54,7 @@ app.post("/create-item", function(req, res) {
 
 
 app.get("/", function (req, res) {
-   console.log("user entered /");
+   console.log("user entered a /");
     db.collection("plans")
     .find()
     .toArray((err, data) => {

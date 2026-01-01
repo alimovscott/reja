@@ -1,3 +1,5 @@
+console.log("frontend ishga tushdi")
+
 const form = document.querySelector("#create-form");
 const input = document.querySelector("#create-field");
 const list = document.querySelector("#item-list")
@@ -24,6 +26,12 @@ function itemTemplate(item) {
 form.addEventListener("submit", (event) => {
     event.preventDefault();
 
+    // if(input.value === "") {
+    //     alert("Bosh joy kiritdingiz yana urinob kuring");
+    //     return;
+    // }
+    if(!input.value.trim()) return;
+
     axios.post("/create-item", {reja: input.value})
     .then(res => {
         list.insertAdjacentHTML("beforeend", itemTemplate(res.data));
@@ -35,4 +43,28 @@ form.addEventListener("submit", (event) => {
         console.log("Please try again")
     });
 
+})
+
+document.addEventListener("click", (event) => {
+   // delete oper
+//    console.log(event.target);
+    if(event.target.classList.contains("delete-me")) {
+        if(confirm("Aniq ochirmoqchimisz?")){
+            axios.post("/delete-item", { id: event.target.getAttribute("data-id")})
+            .then(res => {
+                // console.log(res.data)
+                event.target.parentElement.parentElement.remove()
+            })
+            .catch(err => {
+                console.log("please try again")
+
+            }); 
+        }
+    }
+
+  // edit oper
+    if(event.target.classList.contains("edit-me")) {
+        alert("siz edit bosdingiz")
+    }
+    
 })
