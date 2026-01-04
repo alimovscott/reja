@@ -1,4 +1,5 @@
  
+// serverni qurish uchun yordam beradi
 const http = require("http");
 const mongodb = require("mongodb");
 
@@ -17,6 +18,7 @@ mongodb.connect(
             console.log("MongoDB connection Succeed")
             module.exports = client;
             const app = require("./app");
+            // bu server expressdagi app ni ulab olyapmiz va u 3000-chi portda listen qilyapti
             const server = http.createServer(app);
             let PORT = 3000;
             server.listen(PORT, function() {

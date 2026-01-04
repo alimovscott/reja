@@ -18,17 +18,25 @@ fs.readFile("database/users.json", "utf8", (err,data) => {
 const db = require("./server").db();
 const mongodb = require("mongodb");
 
-// 1
+// 1 kirish kodlari
+// bu google chromega public folderni ochib beradi
 app.use(express.static("public"));
+
+
+// bu kirib kelayatgon json formatdagi datani object holatiga ugirib beradi
 app.use(express.json());
+
+
+// bu bizga agar formdan biror narsani post qilsak express serverimiz qabul qilib oladi agr bu bulamasa qabul qilmedi
 app.use(express.urlencoded({extended: true}));
 
-// 2
-// 3
-
+// 2 Session bogliq kodlar
+// 3 veiwga bogliq kodlar
+// bu BSSR yulni tanladik bu tradiational usul hisoblanadi ejs folderni kursatish uchun foydalanyapmiz
 app.set('views', 'views');
+// bu bizga ejsni kursatadi
 app.set("view engine", "ejs");
-// 4
+// 4 routing bogliq kodlar
 
 
 app.post("/delete-item", function(req, res) {
@@ -44,7 +52,7 @@ app.post("/delete-item", function(req, res) {
 
 app.post("/create-item", function(req, res) {
     console.log("user entered b /create-item");
-    const new_reja = req.body.reja;
+    const new_reja = req.body.reja; 
     console.log("new_reja",new_reja)
     db.collection("plans").insertOne({reja: new_reja}, (err, data) => {
         res.json(data.ops[0]);
@@ -100,3 +108,8 @@ app.get("/author", function(req, res) {
 
 
 module.exports = app;
+
+
+
+
+// node js single thread  libuv 
