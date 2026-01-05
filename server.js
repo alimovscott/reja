@@ -20,7 +20,7 @@ mongodb.connect(
             const app = require("./app");
             // bu server expressdagi app ni ulab olyapmiz va u 3000-chi portda listen qilyapti
             const server = http.createServer(app);
-            let PORT = 3000;
+            let PORT = 4007;
             server.listen(PORT, function() {
             console.log(`The server is running successfully on port:${PORT}, http://localhost:${PORT}`)
               });

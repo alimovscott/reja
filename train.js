@@ -1,15 +1,40 @@
+// TASK C 
+function string(a) {
+ return a.split("").reverse().join("");
+  
+  };
+
+
+console.log(string("hello world"));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //TASK D
-function word(a,b) {
-    if(a.length !== b.length){
-        return false;
-    } 
-    const checka = a.split("").sort().join("");
-    const checkb = b.split("").sort().join("");
-    return checka === checkb;
+// function word(a,b) {
+//     if(a.length !== b.length){
+//         return false;
+//     } 
+//     const checka = a.split("").sort().join("");
+//     const checkb = b.split("").sort().join("");
+//     return checka === checkb;
 
-}
+// }
 
-console.log(word("mitgroup", "puorgtim"))
+// console.log(word("mitgroup", "puorgtim"))
 
 
 
