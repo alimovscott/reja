@@ -85,21 +85,21 @@ app.post("/delete-all", (req, res) => {
 
 
 
-app.get("/", function (req, res) {
-   console.log("user entered a /");
-    db.collection("plans")
-    .find()
-    .toArray((err, data) => {
-        if(err) {
-            console.log(err);
-            res.end("something went wrong");
-        } else{
+// app.get("/", function (req, res) {
+//    console.log("user entered a /");
+//     db.collection("plans")
+//     .find()
+//     .toArray((err, data) => {
+//         if(err) {
+//             console.log(err);
+//             res.end("something went wrong");
+//         } else{
             
-            res.render("reja", {items: data});
-            console.log("data:",data)
-        }
-    });
-});
+//             res.render("reja", {items: data});
+//             console.log("data:",data)
+//         }
+//     });
+// });
 
 app.get("/author", function(req, res) {
     res.render("author", {user: user} );

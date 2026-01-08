@@ -1,11 +1,45 @@
-// TASK C 
-function string(a) {
- return a.split("").reverse().join("");
+// TASK F
+
+function findDoublers(a) {
   
-  };
+
+let found = false
+  for(let i = 0; i < a.length - 1; i++) {
+    if(a[i] === a[i+1]) {
+      found = true;
+      
+
+    }
+  }
+   return found;
+}
 
 
-console.log(string("hello world"));
+console.log(findDoublers("hel"))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// TASK E
+// function string(a) {
+//  return a.split("").reverse().join("");
+  
+//   };
+
+
+// console.log(string("hello world"));
 
 
 
